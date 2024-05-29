@@ -21,11 +21,34 @@ body {
 .calc-button {
     border-radius:50;
     font-weight:700;
-    font-family:'Times New Roman', Times, serif;
-    width:20%;
+    font-family:Arial, Helvetica, sans-serif;
+    width:19%;
     height:20%;
-    border-radius:50px;
+    border-radius:50%;
+    padding:4%;
+    margin:2%;
+    background-color:rgb(83, 100, 128);
+    font-size:xx-large;
+    
 
+}
+
+.num-button {
+    color:white;
+}
+
+.operator-button {
+    color:rgb(143, 255, 143);
+}
+
+#clear-button {
+    color:red;
+}
+
+#operation-result {
+    background-color:gray;
+    text-align:end;
+    font-size:10em;
 }
 
 #input-field, #input {
