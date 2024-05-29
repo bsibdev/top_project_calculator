@@ -18,6 +18,7 @@ const negButton = document.querySelector("#neg-button");
 const zeroButton = document.querySelector("#zero-button");
 const decimalButton = document.querySelector("#decimal-button");
 const operateButton = document.querySelector("#operate-button");
+const workingNum = document.querySelector('#input-num');
 
 //document.addEventListener('click',)
 
@@ -31,12 +32,38 @@ return sum;
 
 console.log(add(num1,num2));
 
-const inputNum = [];
+let inputNumArr = [];
+
+function cleanNum(inputNumArr) {
+    const inputNum = inputNumArr.join("");
+    console.log(inputNum);
+    workingNum.textContent = inputNum;
+    return inputNum;
+}
+
+function deleteNum(inputNumArr){
+    inputNumArr.pop();
+    cleanNum(inputNumArr);
+    return;
+}
+
+function clearAll(inputNumArr) {
+    for (let i = 0; i < inputNumArr.length; i++) {
+        inputNumArr.pop([i]);
+        
+    }
+    cleanNum(inputNumArr);
+    
+    return;
+}
+
 
 document.addEventListener('click',(event) => {
     const target = event.target;
     switch (target.id) {
         case 'clear-button':
+            inputNumArr = [];
+            workingNum.textContent = '0';
         break;
 
         case 'parenthesis-button':
@@ -49,38 +76,63 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'seven-button':
-            inputNum.push(7);
-            console.log(inputNum);
+            inputNumArr.push(7);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'eight-button':
+            inputNumArr.push(8);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'nine-button':
+            inputNumArr.push(9);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'x-button':
         break;
 
         case 'four-button':
+            inputNumArr.push(4);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'five-button':
+            inputNumArr.push(5);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'six-button':
+            inputNumArr.push(6);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'subtract-button':
         break;
 
         case 'one-button':
+            inputNumArr.push(1);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'two-button':
+            inputNumArr.push(2);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'three-button':
+            inputNumArr.push(3);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'add-button':
@@ -90,12 +142,19 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'zero-button':
+            inputNumArr.push(0);
+            cleanNum(inputNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'decimal-button':
         break;
 
         case 'operate-button':
+        break;
+
+        case 'delete-button':
+            deleteNum(inputNumArr);
         break;
     }
 })

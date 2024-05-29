@@ -64,15 +64,17 @@ body {
 
 #input-field, #input {
     height:30%;
-    width:100%;
+    
     display:flex;
     justify-content:flex-end;
     flex-direction:column;
+    margin:0;
 
 }
 
 #input-field {
-    background-color:gray;
+    background-color:black;
+    width:100%;
 
 }
 
@@ -80,5 +82,20 @@ body {
     width:100%;
     font-size:xx-large;
     font-weight: 500;
+    display:flex;
+    flex-direction:row;
+    padding:0;
+    justify-content:flex-end;
 
+}
+
+#delete-button {
+    margin-left:5%;
+    color:red;
+    background-color:black;
+    font-size:xx-large;
+}
+
+#input-num {
+    color:white;
 }
