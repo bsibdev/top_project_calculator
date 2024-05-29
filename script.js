@@ -30,3 +30,72 @@ return sum;
 }
 
 console.log(add(num1,num2));
+
+const inputNum = [];
+
+document.addEventListener('click',(event) => {
+    const target = event.target;
+    switch (target.id) {
+        case 'clear-button':
+        break;
+
+        case 'parenthesis-button':
+        break;
+
+        case 'percent-button':
+        break;
+
+        case 'divide-button':
+        break;
+
+        case 'seven-button':
+            inputNum.push(7);
+            console.log(inputNum);
+        break;
+
+        case 'eight-button':
+        break;
+
+        case 'nine-button':
+        break;
+
+        case 'x-button':
+        break;
+
+        case 'four-button':
+        break;
+
+        case 'five-button':
+        break;
+
+        case 'six-button':
+        break;
+
+        case 'subtract-button':
+        break;
+
+        case 'one-button':
+        break;
+
+        case 'two-button':
+        break;
+
+        case 'three-button':
+        break;
+
+        case 'add-button':
+        break;
+
+        case 'neg-button':
+        break;
+
+        case 'zero-button':
+        break;
+
+        case 'decimal-button':
+        break;
+
+        case 'operate-button':
+        break;
+    }
+})

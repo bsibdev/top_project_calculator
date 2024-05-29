@@ -2,11 +2,15 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
+    flex:auto;
 }
 #calc-body {
     background-color:black;
     width:540px;
     height:960px;
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
 
 }
 
@@ -15,6 +19,8 @@ body {
     justify-content:space-evenly;
     flex-wrap:wrap;
     align-items:flex-end;
+    
+
 
 }
 
@@ -43,6 +49,11 @@ body {
 
 #clear-button {
     color:red;
+}
+
+#operate-button {
+    color:white;
+    background-color:rgb(143, 255, 143);
 }
 
 #operation-result {
