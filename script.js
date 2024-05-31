@@ -303,112 +303,91 @@ document.addEventListener('click',(event) => {
     }
 })
 
-document.addEventListener('keydown',(event) => {
-    const target = event.target;
-    switch (target.id) {
-        case 'clear-button':
+
+document.addEventListener('keydown',(keyBoardEvent) => {
+    const key = keyBoardEvent.key;
+    switch (key) {
+        case 'Escape':
             clearInputNum();
             clearRunningNum();
             operationResult.textContent = '0';
             operationSelection = null;
         break;
 
-        case 'parenthesis-button':
-            alert('feature not yet implemented')
-        break;
-
-        case 'exponent-button':
-            operationSelection = 'exponent';
-            exponent(runningNumValue,inputNumValue);
-        break;
-
-        case 'divide-button':
+        case 'Slash':
             operationSelection = 'divide';
             divide(runningNumValue,inputNumValue);
         break;
 
-        case 'seven-button':
+        case '7':
             inputNumArr.push(7);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'eight-button':
+        case '8':
             inputNumArr.push(8);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'nine-button':
+        case '9':
             inputNumArr.push(9);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'x-button':
-            operationSelection = 'multiply';
-            multiply(runningNumValue,inputNumValue);
-        break;
 
-        case 'four-button':
+        case '4':
             inputNumArr.push(4);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'five-button':
+        case '5':
             inputNumArr.push(5);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'six-button':
+        case '6':
             inputNumArr.push(6);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'subtract-button':
+        case 'Minus':
             console.log(operationSelection);
             operationSelection = 'subtract';
             console.log(operationSelection);
             subtract(runningNumValue,inputNumValue);
         break;
 
-        case 'one-button':
+        case '1':
             inputNumArr.push(1);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'two-button':
+        case '2':
             inputNumArr.push(2);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'three-button':
+        case '3':
             inputNumArr.push(3);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'add-button':
-            operationSelection = 'add';
-            add(runningNumValue,inputNumValue);
-        break;
-
-        case 'neg-button':
-            alert('feature not yet implemented')
-        break;
-
-        case 'zero-button':
+        case '0':
             inputNumArr.push(0);
             cleanNum(inputNumArr,runningNumArr);
             console.log(inputNumArr);
         break;
 
-        case 'decimal-button':
+        case 'Period':
             if (inputNumArr.includes('.')) {
                 alert('Number already contains a decimal point');
                 return;
@@ -419,7 +398,7 @@ document.addEventListener('keydown',(event) => {
             console.log(inputNumArr);}
         break;
 
-        case 'operate-button':
+        case 'Enter':
             if (operationSelection === null) {
                 return;
             } else if (operationSelection === 'add') {
@@ -449,8 +428,27 @@ document.addEventListener('keydown',(event) => {
             operationSelection = null;
         break;
 
-        case 'delete-button':
+        case 'Backspace':
             deleteNum(inputNumArr);
+        break;
+
+        case '(':
+            alert('feature not yet implemented')
+        break;
+
+        case '^':
+            operationSelection = 'exponent';
+            exponent(runningNumValue,inputNumValue);
+        break;
+
+        case '*':
+            operationSelection = 'multiply';
+            multiply(runningNumValue,inputNumValue);
+        break;
+        
+        case '+':
+            operationSelection = 'add';
+            add(runningNumValue,inputNumValue);
         break;
     }
 })
