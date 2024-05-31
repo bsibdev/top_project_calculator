@@ -1,6 +1,6 @@
 const clearButton = document.querySelector("#clear-button");
 const parenthesisButton = document.querySelector("#parenthesis-button");
-const percentButton = document.querySelector("#percent-button");
+const exponentButton = document.querySelector("#exponent-button");
 const divideButton = document.querySelector("#divide-button");
 const sevenButton = document.querySelector("#seven-button");
 const eightButton = document.querySelector("#eight-button");
@@ -24,19 +24,78 @@ const runningNum = document.querySelector('#running-num');
 
 //document.addEventListener('click',)
 
-
+let operationSelection = null;
 
 function add(runningNumValue,inputNumValue) {
-if (runningNumValue.replaceAll(',','') > 0 && inputNumValue > 0) {
-    let sum = Number(runningNumValue.replaceAll(',','')) + Number(inputNumValue);
+if (runningNumValue > 0 && inputNumValue > 0) {
+    let sum = Number(runningNumValue) + Number(inputNumValue);
     operationResult.textContent = sum;
+    runningNum.textContent = sum;
     clearInputNum();
-    return;
+    return runningNumValue;
 } else {
     populateRunningNum();
     return;
 }
 }
+
+function subtract(runningNumValue,inputNumValue) {
+    if (runningNumValue > 0 && inputNumValue > 0) {
+        let difference = Number(runningNumValue) - Number(inputNumValue);
+        operationResult.textContent = difference;
+        clearInputNum();
+        return;
+    } else {
+        populateRunningNum();
+        return;
+    }
+    };
+
+function multiply(runningNumValue,inputNumValue) {
+    if (runningNumValue > 0 && inputNumValue > 0) {
+        let product = Number(runningNumValue) * Number(inputNumValue);
+        operationResult.textContent = product;
+        clearInputNum();
+        return;
+    } else {
+        populateRunningNum();
+        return;
+    }
+    };
+
+function divide(runningNumValue,inputNumValue) {
+    if (runningNumValue > 0 && inputNumValue > 0) {
+        let quotient = Number(runningNumValue) / Number(inputNumValue);
+        operationResult.textContent = quotient;
+        clearInputNum();
+        return;
+    } else {
+        populateRunningNum();
+        return;
+    }
+    };
+
+function exponent(runningNumValue,inputNumValue) {
+    if (runningNumValue > 0 && inputNumValue > 0) {
+        let power = Number(inputNumValue);
+        console.log(power);
+        let number = Number(runningNumValue);
+        let base_num = Number(runningNumValue);
+        console.log(number); 
+
+        for (let i = 1; i<power; i++) {
+            number*=base_num;
+            console.log(number);
+            operationResult.textContent = number;
+        }
+        
+        clearInputNum();
+        return;
+    } else {
+        populateRunningNum();
+        return;
+    }
+    };
 
 let inputNumArr = [];
 let inputNumValue = 0;
@@ -46,11 +105,11 @@ let runningNumValue = 0;
 
 function cleanNum() {
     inputNumValue = inputNumArr.join("");
-    runningNumValue = runningNumArr.join("");
+    runningNumValue = runningNumArr.join("").replaceAll(',','');
     console.log(inputNumValue);
     console.log(runningNumValue);
     inputNum.textContent = inputNumValue;
-    runningNum.textContent = runningNumValue.replaceAll(',','');
+    runningNum.textContent = runningNumValue;
     return;
 }
 
@@ -84,8 +143,8 @@ function clearRunningNum() {
 
 function populateRunningNum() {
     runningNumArr.push(inputNumArr);
-    runningNumValue = runningNumArr.join("");
-    runningNum.textContent = runningNumValue.replaceAll(',','');
+    runningNumValue = runningNumArr.join("").replaceAll(',','');
+    runningNum.textContent = runningNumValue;
     clearInputNum();
     return;
     
@@ -99,15 +158,21 @@ document.addEventListener('click',(event) => {
             clearInputNum();
             clearRunningNum();
             operationResult.textContent = '0';
+            operationSelection = null;
         break;
 
         case 'parenthesis-button':
+            alert('feature not yet implemented')
         break;
 
-        case 'percent-button':
+        case 'exponent-button':
+            operationSelection = 'exponent';
+            exponent(runningNumValue,inputNumValue);
         break;
 
         case 'divide-button':
+            operationSelection = 'divide';
+            divide(runningNumValue,inputNumValue);
         break;
 
         case 'seven-button':
@@ -129,6 +194,8 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'x-button':
+            operationSelection = 'multiply';
+            multiply(runningNumValue,inputNumValue);
         break;
 
         case 'four-button':
@@ -150,6 +217,10 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'subtract-button':
+            console.log(operationSelection);
+            operationSelection = 'subtract';
+            console.log(operationSelection);
+            subtract(runningNumValue,inputNumValue);
         break;
 
         case 'one-button':
@@ -171,10 +242,12 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'add-button':
-            add(runningNumValue,inputNumValue)
+            operationSelection = 'add';
+            add(runningNumValue,inputNumValue);
         break;
 
         case 'neg-button':
+            alert('feature not yet implemented')
         break;
 
         case 'zero-button':
@@ -187,6 +260,33 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'operate-button':
+            if (operationSelection === null) {
+                return;
+            } else if (operationSelection === 'add') {
+                add(runningNumValue,inputNumValue);
+                console.log(`operationSelection = ${operationSelection}`);
+                console.log(`added ${inputNumValue} to ${runningNumValue}`);
+            } else if (operationSelection === 'subtract') {
+                subtract(runningNumValue,inputNumValue);
+                console.log(`subtracted ${inputNumValue} from ${runningNumValue}`);
+            } else if (operationSelection === 'multiply') {
+                multiply(runningNumValue,inputNumValue);
+                console.log(`Multiplied ${runningNumValue} by ${inputNumValue}`);
+            } else if (operationSelection === 'divide') {
+                divide(runningNumValue,inputNumValue);
+                console.log(`Divided ${runningNumValue} by ${inputNumValue}`);
+            } else if (operationSelection === 'exponent') {
+                exponent(runningNumValue,inputNumValue);
+                console.log(`Raised ${runningNumValue} to the power of ${inputNumValue}`);
+            } else {
+                return 'error';
+            };
+            runningNumValue = Number(operationResult.textContent);
+            runningNumArr = [];
+            runningNumArr.push(runningNumValue);
+            inputNumValue = 0;
+
+            operationSelection = null;
         break;
 
         case 'delete-button':

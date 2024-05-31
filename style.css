@@ -4,6 +4,7 @@ body {
     align-items:center;
     flex:auto;
 }
+
 #calc-body {
     background-color:black;
     width:540px;
@@ -128,4 +129,9 @@ body {
 .flex-container {
     display:flex;
     flex-direction:row;
+}
+
+#parenthesis-button, #neg-button {
+    background-color:gray;
+    color:lightgray;
 }
