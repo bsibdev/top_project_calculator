@@ -257,9 +257,13 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'decimal-button':
+            if (inputNumArr.includes('.')) {
+                return;
+            } else {
             inputNumArr.push('.');
+            checkForDecimal
             cleanNum(inputNumArr,runningNumArr);
-            console.log(inputNumArr);
+            console.log(inputNumArr);}
         break;
 
         case 'operate-button':
