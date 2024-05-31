@@ -302,3 +302,155 @@ document.addEventListener('click',(event) => {
         break;
     }
 })
+
+document.addEventListener('keydown',(event) => {
+    const target = event.target;
+    switch (target.id) {
+        case 'clear-button':
+            clearInputNum();
+            clearRunningNum();
+            operationResult.textContent = '0';
+            operationSelection = null;
+        break;
+
+        case 'parenthesis-button':
+            alert('feature not yet implemented')
+        break;
+
+        case 'exponent-button':
+            operationSelection = 'exponent';
+            exponent(runningNumValue,inputNumValue);
+        break;
+
+        case 'divide-button':
+            operationSelection = 'divide';
+            divide(runningNumValue,inputNumValue);
+        break;
+
+        case 'seven-button':
+            inputNumArr.push(7);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'eight-button':
+            inputNumArr.push(8);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'nine-button':
+            inputNumArr.push(9);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'x-button':
+            operationSelection = 'multiply';
+            multiply(runningNumValue,inputNumValue);
+        break;
+
+        case 'four-button':
+            inputNumArr.push(4);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'five-button':
+            inputNumArr.push(5);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'six-button':
+            inputNumArr.push(6);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'subtract-button':
+            console.log(operationSelection);
+            operationSelection = 'subtract';
+            console.log(operationSelection);
+            subtract(runningNumValue,inputNumValue);
+        break;
+
+        case 'one-button':
+            inputNumArr.push(1);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'two-button':
+            inputNumArr.push(2);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'three-button':
+            inputNumArr.push(3);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'add-button':
+            operationSelection = 'add';
+            add(runningNumValue,inputNumValue);
+        break;
+
+        case 'neg-button':
+            alert('feature not yet implemented')
+        break;
+
+        case 'zero-button':
+            inputNumArr.push(0);
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
+        break;
+
+        case 'decimal-button':
+            if (inputNumArr.includes('.')) {
+                alert('Number already contains a decimal point');
+                return;
+            } else {
+            inputNumArr.push('.');
+            checkForDecimal
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);}
+        break;
+
+        case 'operate-button':
+            if (operationSelection === null) {
+                return;
+            } else if (operationSelection === 'add') {
+                add(runningNumValue,inputNumValue);
+                console.log(`operationSelection = ${operationSelection}`);
+                console.log(`added ${inputNumValue} to ${runningNumValue}`);
+            } else if (operationSelection === 'subtract') {
+                subtract(runningNumValue,inputNumValue);
+                console.log(`subtracted ${inputNumValue} from ${runningNumValue}`);
+            } else if (operationSelection === 'multiply') {
+                multiply(runningNumValue,inputNumValue);
+                console.log(`Multiplied ${runningNumValue} by ${inputNumValue}`);
+            } else if (operationSelection === 'divide') {
+                divide(runningNumValue,inputNumValue);
+                console.log(`Divided ${runningNumValue} by ${inputNumValue}`);
+            } else if (operationSelection === 'exponent') {
+                exponent(runningNumValue,inputNumValue);
+                console.log(`Raised ${runningNumValue} to the power of ${inputNumValue}`);
+            } else {
+                return 'error';
+            };
+            runningNumValue = Number(operationResult.textContent);
+            runningNumArr = [];
+            runningNumArr.push(runningNumValue);
+            inputNumValue = 0;
+
+            operationSelection = null;
+        break;
+
+        case 'delete-button':
+            deleteNum(inputNumArr);
+        break;
+    }
+})
