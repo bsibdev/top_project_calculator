@@ -75,6 +75,9 @@ body {
 #input-field {
     background-color:black;
     width:100%;
+    display:flex;
+    flex-direction:column;
+    
 
 }
 
@@ -85,7 +88,8 @@ body {
     display:flex;
     flex-direction:row;
     padding:0;
-    justify-content:flex-end;
+    justify-content:flex-start;
+    align-items:center;
 
 }
 
@@ -94,8 +98,34 @@ body {
     color:red;
     background-color:black;
     font-size:xx-large;
+    flex:1 1 1;
 }
 
 #input-num {
     color:white;
+    flex:0;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#running-num {
+    color:gray;
+    text-align:right;
+}
+
+#right-side {
+    display:flex;
+    margin:0;
+    padding:0;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items:center;
+    margin-top:1%;
+    flex:1;
+    
+}
+
+.flex-container {
+    display:flex;
+    flex-direction:row;
 }
