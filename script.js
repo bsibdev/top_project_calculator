@@ -258,6 +258,7 @@ document.addEventListener('click',(event) => {
 
         case 'decimal-button':
             if (inputNumArr.includes('.')) {
+                alert('Number already contains a decimal point');
                 return;
             } else {
             inputNumArr.push('.');
