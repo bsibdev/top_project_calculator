@@ -257,6 +257,9 @@ document.addEventListener('click',(event) => {
         break;
 
         case 'decimal-button':
+            inputNumArr.push('.');
+            cleanNum(inputNumArr,runningNumArr);
+            console.log(inputNumArr);
         break;
 
         case 'operate-button':

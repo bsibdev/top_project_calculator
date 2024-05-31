@@ -131,7 +131,7 @@ body {
     flex-direction:row;
 }
 
-#parenthesis-button, #neg-button, #decimal-button{
+#parenthesis-button, #neg-button{
     background-color:gray;
     color:lightgray;
 }
